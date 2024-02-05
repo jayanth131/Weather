@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#define FILE_NAME "weather7.txt"
-#define CITY_NAME_LENGHT 20
-#define URL_LENGTH 200
-#define FINAL_LENGTH 200
+#define FILE_NAME "weather(2).txt"
+#define CITY_NAME_LENGHT 30
+#define URL_LENGTH 250
+#define FINAL_LENGTH 250
 
 void main()
 {
@@ -16,28 +16,28 @@ void main()
 		"&appid=abe3a0f4d0b6cebfbe7393b4b4e3aa28&units=metric\">", FILE_NAME);
 	system(url);
 
-	FILE *FpFilelist = fopen(FILE_NAME, "r");
+	FILE *Fp_Filelist = fopen(FILE_NAME, "r");
 
-	fseek(FpFilelist, 0, SEEK_END);
+	fseek(Fp_Filelist, 0, SEEK_END);
 
-	int size = ftell(FpFilelist);
+	int size = ftell(Fp_Filelist);
 
-	rewind(FpFilelist);
+	rewind(Fp_Filelist);
 
 	char Value[size];
 
 	fread(Value, size , 1, FpFilelist);
 
-	char *token = (char*)strtok(Value, ":");
+	char *tokenizer = (char*)strtok(Value, ":");
 	int printed = 0;
 
-	while(token != NULL)
+	while(tokenizer != NULL)
 	{
-		if ( !strcmp("{\"temp\"", token))
+		if ( !strcmp("{\"temp\"", tokenizer))
 		{
 			token = strtok(NULL, ",");
-			printf("\n%s Temperature %s%cC\n", CityName, token, 248);
-			token = NULL;
+			printf("\n%s Temperature %s%cC\n", CityName, tokenizer, 248);
+			tokenizer = NULL;
 			printed = 1;
 		}
 		else
