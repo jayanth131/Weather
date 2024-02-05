@@ -35,13 +35,13 @@ void main()
 	{
 		if ( !strcmp("{\"temp\"", tokenizer))
 		{
-			token = strtok(NULL, ",");
+			tokenizer = strtok(NULL, ",");
 			printf("\n%s Temperature %s%cC\n", CityName, tokenizer, 248);
 			tokenizer = NULL;
 			printed = 1;
 		}
 		else
-			token = strtok(NULL, ":");
+			tokenizer = strtok(NULL, ":");
 
 	}
 
