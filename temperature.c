@@ -26,7 +26,8 @@ void main()
 
 	char Value[size];
 
-	fread(Value, size , 1, FpFilelist);
+	fread(Value, size , 1, Fp_Filelist);
+	fclose(Fp_Filelist) ;
 
 	char *tokenizer = (char*)strtok(Value, ":");
 	int printed = 0;
